@@ -9,6 +9,7 @@ import { getMovies } from "services/getMovies"
     useEffect(()=>{
         getMovies("/trending/movie/week").then(data=>{setMovies(data)})
     },[])
+    console.log(movies)
 
     return(
 <>
