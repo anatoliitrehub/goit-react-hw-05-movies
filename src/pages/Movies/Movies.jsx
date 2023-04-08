@@ -2,7 +2,7 @@
 const Movies = () => {
     return(
         <>
-Movies
+Movies search
         </>
     )
 }
