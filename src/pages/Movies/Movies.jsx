@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, useLocation, useSearchParams } from 'react-router-dom';
 
 import { getMovies } from 'services/getMovies';
@@ -10,14 +10,24 @@ const Movies = () => {
   const [wordSearch, setWordSearch] = useState('');
   const [search, setSearch] = useSearchParams('');
 
+  useEffect(()=>{
+    const requestPath = `/search/movie`;
+
+    getMovies(requestPath, search.get("query")).then(data => {
+      setMovies(data);
+    });
+  },[search])
+
   const getSearch = ev => {
     ev.preventDefault();
     setSearch({ query: wordSearch.trim() });
-    const requestPath = `/search/movie`;
+    // const requestPath = `/search/movie`;
 
-    getMovies(requestPath, wordSearch.trim()).then(data => {
-      setMovies(data);
-    });
+    // getMovies(requestPath, wordSearch.trim()).then(data => {
+    //   setMovies(data);
+    // });
+
+    
 
     // console.log("movies");
   };
@@ -36,7 +46,7 @@ const Movies = () => {
         {movies.results && movies.results.length !== 0 && (
           <h1>Search results:</h1>
         )}
-        {movies.results && movies.results.length === 0 && (
+        {movies.results && movies.results.length === 0 && (search.get("query"))&& (
           <h1>There are no results</h1>
         )}
         <ul>

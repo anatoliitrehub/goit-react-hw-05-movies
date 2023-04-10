@@ -9,7 +9,7 @@ const Home = () => {
 
   // console.log(location)
   useEffect(() => {
-    getMovies('/trending/movie/week').then(data => {
+    getMovies('/trending/movie/day').then(data => {
       setMovies(data);
     });
   }, []);

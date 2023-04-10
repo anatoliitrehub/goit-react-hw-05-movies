@@ -58,7 +58,7 @@ const MovieDetails = () => {
 
           <div className={s.infoMovie}>
             <h1>{movie.title}</h1>
-            {movie.vote_average && (
+            {movie.vote_average&&movie.vote_average!==0 && (
               <p>User score: {Math.floor(10 * movie.vote_average)}%</p>
             )}
             <h2>Overview:</h2>
@@ -83,10 +83,10 @@ const MovieDetails = () => {
         <p>Addition information</p>
         <ul>
           <li>
-            <NavLink to="cast">Cast</NavLink>
+            <NavLink to="cast" state={location.state}>Cast</NavLink>
           </li>
           <li>
-            <NavLink to="reviews">Reviews</NavLink>
+            <NavLink to="reviews" state={location.state}>Reviews</NavLink>
           </li>
         </ul>
         <Outlet />
@@ -96,7 +96,7 @@ const MovieDetails = () => {
 };
 
 MovieDetails.propTypes = {
-  movieId: PropTypes.number.isRequired,
+  movieId: PropTypes.number,
 };
 
 export default MovieDetails;

@@ -22,6 +22,9 @@ const Cast = () => {
     <>
       {/* cast {movieId} */}
       <section className={s.section}>
+      {movie.results && !movie.results.length && (
+          <p>There are no information about cast</p>
+        )}
         <ul>
           {movie.cast &&
             movie.cast.map(el => {
