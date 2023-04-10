@@ -58,7 +58,7 @@ const MovieDetails = () => {
 
           <div className={s.infoMovie}>
             <h1>{movie.title}</h1>
-            {movie.vote_average&&movie.vote_average!==0 && (
+            {movie.vote_average!==0 && (
               <p>User score: {Math.floor(10 * movie.vote_average)}%</p>
             )}
             <h2>Overview:</h2>
