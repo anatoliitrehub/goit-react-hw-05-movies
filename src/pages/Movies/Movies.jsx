@@ -1,22 +1,25 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useSearchParams } from 'react-router-dom';
 
 import { getMovies } from 'services/getMovies';
 import s from './Movies.module.css';
 
 const Movies = () => {
+  const location = useLocation();
   const [movies, setMovies] = useState([]);
   const [wordSearch, setWordSearch] = useState('');
+  const [search, setSearch] = useSearchParams('');
 
   const getSearch = ev => {
     ev.preventDefault();
+    setSearch({ query: wordSearch.trim() });
     const requestPath = `/search/movie`;
 
     getMovies(requestPath, wordSearch.trim()).then(data => {
       setMovies(data);
     });
 
-    // console.log(movies);
+    // console.log("movies");
   };
   return (
     <>
@@ -43,7 +46,9 @@ const Movies = () => {
               return (
                 <>
                   <li key={el.id}>
-                    <NavLink to={fullPath}>{el.title}</NavLink>
+                    <NavLink to={fullPath} state={location}>
+                      {el.title}
+                    </NavLink>
                   </li>
                 </>
               );

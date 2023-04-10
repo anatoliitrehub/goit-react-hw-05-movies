@@ -1,7 +1,7 @@
 .section{
     padding: 5px;
     border-top:3px double grey;
-    border-bottom: 2px double grey;
+    /* border-bottom: 2px double grey; */
 }
 .buttonBack{
     font-size: 16px;

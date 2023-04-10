@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { getMovies } from 'services/getMovies';
 import s from './Home.module.css';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+  const location = useLocation();
 
+  // console.log(location)
   useEffect(() => {
     getMovies('/trending/movie/week').then(data => {
       setMovies(data);
     });
   }, []);
-  // console.log(movies)
+  // console.log("home")
 
   return (
     <>
@@ -24,7 +26,9 @@ const Home = () => {
               return (
                 <>
                   <li key={el.id}>
-                    <NavLink to={fullPath}>{el.title}</NavLink>
+                    <NavLink to={fullPath} state={location}>
+                      {el.title}
+                    </NavLink>
                   </li>
                 </>
               );

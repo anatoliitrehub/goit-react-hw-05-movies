@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovies } from 'services/getMovies';
 import PropTypes from 'prop-types';
+import s from './Cast.module.css';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -20,23 +21,24 @@ const Cast = () => {
   return (
     <>
       {/* cast {movieId} */}
-      <ul>
-        {movie.cast &&
-          movie.cast.map(el => {
-            return (
-              <li key={el.id}>
-                {el.profile_path && (
-                  <img src={servPath + el.profile_path} alt={el.title} />
-                )}
-                <br />
-                {el.name}
-                <br />
-                Character: {el.character}
-              </li>
-            );
-          })}
-      </ul>
-      {}
+      <section className={s.section}>
+        <ul>
+          {movie.cast &&
+            movie.cast.map(el => {
+              return (
+                <li key={el.id}>
+                  {el.profile_path && (
+                    <img src={servPath + el.profile_path} alt={el.title} />
+                  )}
+                  <br />
+                  {el.name}
+                  <br />
+                  Character: {el.character}
+                </li>
+              );
+            })}
+        </ul>
+      </section>
     </>
   );
 };
