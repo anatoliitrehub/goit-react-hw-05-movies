@@ -15,9 +15,8 @@ const StyledLink = styled(NavLink)`
   font-weight: 700;
 
   &.active {
-    color: red;
-  }
-`;
+    color: #FF0000;
+  }`;
 
 const SharedLayout = () => {
   return (
