@@ -16,11 +16,8 @@ const Cast = () => {
     });
   }, [movieId]);
 
-  // console.log(movie);
-
   return (
     <>
-      {/* cast {movieId} */}
       <section className={s.section}>
       {movie.results && !movie.results.length && (
           <p>There are no information about cast</p>

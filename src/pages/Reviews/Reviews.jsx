@@ -7,7 +7,6 @@ import s from './Reviews.module.css';
 const Reviews = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState([]);
-  //   const servPath = `https://www.themoviedb.org/t/p/w220_and_h330_face`;
 
   useEffect(() => {
     const requestPath = `/movie/${movieId}/reviews`;
@@ -16,7 +15,6 @@ const Reviews = () => {
     });
   }, [movieId]);
 
-  //   console.log(movie.results)
   return (
     <>
       <section className={s.section}>

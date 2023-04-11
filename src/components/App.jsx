@@ -1,5 +1,4 @@
 import { Routes, Route, NavLink, Outlet } from 'react-router-dom';
-// import {StyledLink} from './App.styled';
 import Home from 'pages/Home/Home';
 import Movies from 'pages/Movies/Movies';
 // import MovieDetails from 'pages/MovieDetails/MovieDetails';
@@ -63,13 +62,6 @@ export const App = () => {
           <Route path="/movies" element={<Movies />} />
 
           <Route path="/movies/:movieId" element={<MovieDetails />}>
-            {/* <Route index element={<MovieInfo />}/> */}
-            {/* <Route path="cast"element={<p>CAST</p>}
-            />
-            <Route
-              path="reviews"
-              element={<p>REVIEWS</p>}
-            /> */}
             <Route
               path="cast"
               element={

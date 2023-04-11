@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import clsx from "clsx";
 import PropTypes from 'prop-types';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';

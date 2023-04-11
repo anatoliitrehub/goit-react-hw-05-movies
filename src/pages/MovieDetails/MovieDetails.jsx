@@ -17,14 +17,8 @@ const MovieDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // console.log("details",location.state.from)
-  // const location = useLocation();
   const servPath = `https://www.themoviedb.org/t/p/w220_and_h330_face`;
-  // console.log(movieId)
-  // const movies = getMovies(502)
-  // console.log("movies details")
-  // const requestPath = `/movie/`+movieId;
-
+  
   useEffect(() => {
     const requestPath = `/movie/` + movieId;
 
@@ -32,9 +26,6 @@ const MovieDetails = () => {
       setMovie(data);
     });
   }, [movieId]);
-
-  // console.log(movieId)
-  // console.log(movie);
 
   return (
     <>
@@ -77,7 +68,6 @@ const MovieDetails = () => {
           </div>
         </div>
       </section>
-      {/* <p>ID: {movieId}</p> */}
       <section className={s.section}>
         {/* {movie&&<MovieInfo movie={movie}/>} */}
         <p>Addition information</p>
