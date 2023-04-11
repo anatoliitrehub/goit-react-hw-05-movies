@@ -80,7 +80,9 @@ export const App = () => {
             />
           </Route>
         </Route>
-        <Route path="*" element={<Home />} />
+        {/* <Route path="*" element={<Home />} /> */}
+        <Route path="/goit-react-hw-05-movies" element={<Home />} />
+        <Route path="*" element={<h1>Wrong path</h1>} />
       </Routes>
     </div>
   );
